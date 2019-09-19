@@ -4,7 +4,7 @@
 #                                                                              #
 #  By - jacksonwb                                                              #
 #  Created: Wednesday December 1969 4:00:00 pm                                 #
-#  Modified: Thursday Sep 2019 8:14:00 pm                                      #
+#  Modified: Tuesday Sep 2019 3:47:41 pm                                       #
 #  Modified By: jacksonwb                                                      #
 # ---------------------------------------------------------------------------- #
 
@@ -67,6 +67,6 @@ if __name__ == '__main__':
 		(lambda x: f_qntl(x, 0.5), '50%'),
 		(lambda x: f_qntl(x, 0.75), '75%'),
 		(max, 'max')]
-	print(data.describe())
+	# print(data.describe())
 	print(describe(data, assets))
 	# print(data)
