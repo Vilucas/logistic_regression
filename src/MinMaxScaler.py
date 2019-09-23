@@ -4,7 +4,7 @@
 #                                                                              #
 #  By - jacksonwb                                                              #
 #  Created: Wednesday December 1969 4:00:00 pm                                 #
-#  Modified: Wednesday Sep 2019 9:25:58 pm                                     #
+#  Modified: Monday Sep 2019 2:37:43 pm                                        #
 #  Modified By: jacksonwb                                                      #
 # ---------------------------------------------------------------------------- #
 
@@ -17,6 +17,7 @@ class MinMaxScaler:
 	def fit(self, x):
 		self.min = x.min(axis=0)
 		self.max = x.max(axis=0)
+		self.fitted = True
 
 	def transform(self, x):
 		if not self.fitted:

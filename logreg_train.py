@@ -4,7 +4,7 @@
 #                                                                              #
 #  By - jacksonwb                                                              #
 #  Created: Wednesday December 1969 4:00:00 pm                                 #
-#  Modified: Wednesday Sep 2019 9:20:09 pm                                     #
+#  Modified: Monday Sep 2019 2:30:04 pm                                        #
 #  Modified By: jacksonwb                                                      #
 # ---------------------------------------------------------------------------- #
 
@@ -12,8 +12,8 @@ import argparse
 import pickle
 import numpy as np
 import pandas as pd
-import MinMaxScaler
-import MultiLogReg
+import src.MinMaxScaler as MinMaxScaler
+import src.MultiLogReg as MultiLogReg
 from sklearn.model_selection import train_test_split
 
 pd.options.mode.chained_assignment = None  # default='warn'

@@ -4,7 +4,7 @@
 #                                                                              #
 #  By - jacksonwb                                                              #
 #  Created: Wednesday December 1969 4:00:00 pm                                 #
-#  Modified: Wednesday Sep 2019 9:46:37 pm                                     #
+#  Modified: Monday Sep 2019 2:29:31 pm                                        #
 #  Modified By: jacksonwb                                                      #
 # ---------------------------------------------------------------------------- #
 
@@ -13,8 +13,8 @@ import pickle
 import sys
 import pandas as pd
 import numpy as np
-import MinMaxScaler
-import MultiLogReg
+import src.MinMaxScaler as MinMaxScaler
+import src.MultiLogReg as MultiLogReg
 
 def parse():
 	parser = argparse.ArgumentParser(description='DSLR prediction')

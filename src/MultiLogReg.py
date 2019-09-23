@@ -4,7 +4,7 @@
 #                                                                              #
 #  By - jacksonwb                                                              #
 #  Created: Wednesday December 1969 4:00:00 pm                                 #
-#  Modified: Wednesday Sep 2019 9:25:17 pm                                     #
+#  Modified: Monday Sep 2019 12:52:06 pm                                       #
 #  Modified By: jacksonwb                                                      #
 # ---------------------------------------------------------------------------- #
 
@@ -74,7 +74,6 @@ class MultiLogReg:
 			plt.title('Cost')
 			plt.xlabel('iterations')
 			plt.show()
-
 
 	def predict(self, x):
 		if not self.solved:
