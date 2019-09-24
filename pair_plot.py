@@ -4,7 +4,7 @@
 #                                                                              #
 #  By - jacksonwb                                                              #
 #  Created: Wednesday December 1969 4:00:00 pm                                 #
-#  Modified: Friday Sep 2019 4:52:12 pm                                        #
+#  Modified: Tuesday Sep 2019 2:22:27 pm                                       #
 #  Modified By: jacksonwb                                                      #
 # ---------------------------------------------------------------------------- #
 
@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-HOUSE = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff']
+HOUSE = ['Group 1', 'Group 2', 'Group 3', 'Group 0']
 
 def usage():
 	print('usage: ./describe.py data_file')
@@ -31,7 +31,7 @@ if __name__ == '__main__':
 		print(e)
 		exit(1)
 	sample = data.select_dtypes(include=[np.number]).iloc[:,1:]
-	sample['Hogwarts House'] = data['Hogwarts House']
+	sample['Category'] = data['Category']
 
 	data_col_len = len(sample.columns) - 1
 	fig = plt.figure(figsize=(11.5,8))
@@ -43,7 +43,7 @@ if __name__ == '__main__':
 			if row == col:
 				col_name = sample.columns[col - 1]
 				for h in HOUSE:
-					segment = sample[sample['Hogwarts House'] == h][col_name]
+					segment = sample[sample['Category'] == h][col_name]
 					segment = segment[~np.isnan(segment)]
 					plt.hist(segment, alpha=0.5, bins=20)
 					plt.title(col_name, fontsize='x-small')
@@ -51,7 +51,7 @@ if __name__ == '__main__':
 				col_name = sample.columns[col - 1]
 				row_name = sample.columns[row - 1]
 				for h in HOUSE:
-					segment = sample[sample['Hogwarts House'] == h]
+					segment = sample[sample['Category'] == h]
 					X = segment[row_name]
 					Y = segment[col_name]
 					plt.scatter(x=X, y=Y, alpha=0.5, s=2)

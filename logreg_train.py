@@ -1,10 +1,10 @@
 #! /usr/bin/env python3
 # ---------------------------------------------------------------------------- #
-#  DSLR.py                                                                     #
+#  logreg_train.py                                                             #
 #                                                                              #
 #  By - jacksonwb                                                              #
 #  Created: Wednesday December 1969 4:00:00 pm                                 #
-#  Modified: Monday Sep 2019 2:30:04 pm                                        #
+#  Modified: Tuesday Sep 2019 2:27:57 pm                                       #
 #  Modified By: jacksonwb                                                      #
 # ---------------------------------------------------------------------------- #
 
@@ -19,7 +19,7 @@ from sklearn.model_selection import train_test_split
 pd.options.mode.chained_assignment = None  # default='warn'
 
 def parse():
-	parser = argparse.ArgumentParser(description='Softmax Model for Wizard Hatting')
+	parser = argparse.ArgumentParser(description='Softmax Model for Multidimensional Data')
 	parser.add_argument('-t', '--test', action='store_true')
 	parser.add_argument('-p', '--plot', action='store_true')
 	parser.add_argument('data')
@@ -39,14 +39,14 @@ if __name__ == '__main__':
 	data = data.dropna()
 
 	# Seperate y and prepare y values
-	y = data['Hogwarts House']
-	y.loc[y == 'Hufflepuff'] = 0
-	y.loc[y == 'Slytherin'] = 1
-	y.loc[y == 'Gryffindor'] = 2
-	y.loc[y == 'Ravenclaw'] = 3
+	y = data['Category']
+	y.loc[y == 'Group 0'] = 0
+	y.loc[y == 'Group 1'] = 1
+	y.loc[y == 'Group 2'] = 2
+	y.loc[y == 'Group 3'] = 3
 
 	# Seperate and prepare x values
-	x = data.select_dtypes(include=[np.number])[['Divination', 'Arithmancy','Charms', 'Defense Against the Dark Arts', 'Muggle Studies']]
+	x = data.select_dtypes(include=[np.number])[['E', 'A','L', 'D', 'F']]
 	x_num = x.to_numpy()
 	scaler = MinMaxScaler.MinMaxScaler()
 	scaler.fit(x_num)

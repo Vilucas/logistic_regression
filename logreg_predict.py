@@ -4,7 +4,7 @@
 #                                                                              #
 #  By - jacksonwb                                                              #
 #  Created: Wednesday December 1969 4:00:00 pm                                 #
-#  Modified: Monday Sep 2019 2:29:31 pm                                        #
+#  Modified: Tuesday Sep 2019 2:30:51 pm                                       #
 #  Modified By: jacksonwb                                                      #
 # ---------------------------------------------------------------------------- #
 
@@ -17,7 +17,7 @@ import src.MinMaxScaler as MinMaxScaler
 import src.MultiLogReg as MultiLogReg
 
 def parse():
-	parser = argparse.ArgumentParser(description='DSLR prediction')
+	parser = argparse.ArgumentParser(description='Softmax Prediction for Multidimensional Data')
 	parser.add_argument('model')
 	parser.add_argument('data')
 	return parser.parse_args()
@@ -43,7 +43,7 @@ if __name__ == '__main__':
 		exit(1)
 
 	# Seperate and prepare x values
-	x = data.select_dtypes(include=[np.number])[['Divination', 'Arithmancy','Charms', 'Defense Against the Dark Arts', 'Muggle Studies']]
+	x = data.select_dtypes(include=[np.number])[['E', 'A','L', 'D', 'F']]
 	x_num = x.to_numpy()
 	scaler = MinMaxScaler.MinMaxScaler()
 	scaler.load(model[1])
@@ -53,8 +53,8 @@ if __name__ == '__main__':
 	logreg = MultiLogReg.MultiLogReg()
 	logreg.load(model[0])
 
-	pred = pd.DataFrame(logreg.predict(x_transform), columns=['Hogwarts House'])
+	pred = pd.DataFrame(logreg.predict(x_transform), columns=['Category'])
 
-	key = {0:'Hufflepuff', 1:'Slytherin', 2:'Gryffindor', 3:'Ravenclaw'}
+	key = {0:'Group 0', 1:'Group 1', 2:'Group 2', 3:'Group 3'}
 	pred.replace(key, inplace=True)
-	pred.to_csv('houses.csv', index=True, index_label='Index')
+	pred.to_csv('categories.csv', index=True, index_label='Index')
